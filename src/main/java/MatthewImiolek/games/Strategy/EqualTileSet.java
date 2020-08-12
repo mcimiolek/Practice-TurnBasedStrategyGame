@@ -4,16 +4,16 @@ package MatthewImiolek.games.Strategy;
    in the chance of the same tiles being near each other. */
 public class EqualTileSet extends TileSet {
     String baseTile = "plain";
-    double maxPlainChance = .25;
-    double minPlainChance = .25;
-    double maxWaterChance = .25;
-    double minWaterChance = .25;
-    double maxForestChance = .25;
-    double minForestChance = .25;
-    double maxMountainChance = .25;
-    double minMountainChance = .25;
-    double contChancePlain = .1;
-    double contChanceWater = .1;
-    double contChanceForest = .1;
-    double contChanceMountain = .1;
+    double maxPlainChance = 0.25;
+    double minPlainChance = 0.25;
+    double maxWaterChance = 0.25;
+    double minWaterChance = 0.25;
+    double maxForestChance = 0.25;
+    double minForestChance = 0.25;
+    double maxMountainChance = 0.25;
+    double minMountainChance = 0.25;
+    double contChancePlain = 0.1;
+    double contChanceWater = 0.1;
+    double contChanceForest = 0.1;
+    double contChanceMountain = 0.1;
 }

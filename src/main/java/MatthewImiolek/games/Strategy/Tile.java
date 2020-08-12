@@ -7,12 +7,12 @@ public class Tile {
     boolean hasUnit;    // States if a tile has a unit
     boolean hasAbility; // States if a tile has an ability that must be applied
     double evaBonus;    // The amount of evasion bonus a unit gets from a tile
-    int flyCost;        // How much moving over the tile costs for a flying unit
-    int heavyCost;      // How much moving over the tile costs for a heavy unit
-    int lightCost;      // How much moving over the tile costs for a light unit
-    int fastCost;       // How much moving over the tile costs for a fast unit
-    int abilPhase;      // What phase of play the ability must be applied in
-    int abilImpact;     // The impact of the ability
+    int flyCost;        // How much moving over the tile costs for a flying unit, -1 means cannot go there
+    int heavyCost;      // How much moving over the tile costs for a heavy unit, -1 means cannot go there
+    int lightCost;      // How much moving over the tile costs for a light unit, -1 means cannot go there
+    int fastCost;       // How much moving over the tile costs for a fast unit, -1 means cannot go there
+    int abilPhase;      // What phase of play the ability must be applied in, -1 means no ability
+    int abilImpact;     // The impact of the ability, -1 means no ability
 
     // set if the tile has a unit or not
     public void setHasUnit(boolean hasUnit){

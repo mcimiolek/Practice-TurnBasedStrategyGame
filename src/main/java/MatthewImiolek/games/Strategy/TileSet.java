@@ -4,7 +4,7 @@ package MatthewImiolek.games.Strategy;
    the percent ranges for each of the other tiles available, and picking the increased chances for a tile to be the same
    as the one it is next to. This is then extended to create the actual tile sets. */
 
-public abstract class TileSet {
+public class TileSet {
     String baseTile;            // The base tile type for the set, which are then changed to other tiles
     double maxPlainRange;       // Max percent of the board that will be plains
     double minPlainRange;       // Min percent of the board that will be plains

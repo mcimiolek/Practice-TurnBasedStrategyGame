@@ -19,9 +19,19 @@ public class TileSet {
     double contChanceForest;    // Additional chance of a forest next to a forest
     double contChanceMountain;  // Additional chance of a mountain next to a mountain
 
+    // Get the base tile
+    public String getBaseTile(){
+        return baseTile;
+    }
+
     // Sets the default tile type for a set, which will be then be replaced with other tile types
     public void setBaseTile(String tileType){
         this.baseTile = tileType;
+    }
+
+    // Get the percent range for the amount of forest tiles
+    public double[] getChanceRangeForest(){
+        return new double[] {maxForestRange, minForestRange};
     }
 
     // Sets percent range for amount of forest tiles
@@ -30,10 +40,20 @@ public class TileSet {
         this.minForestRange = min;
     }
 
+    // Get the percent range for the amount of water tiles
+    public double[] getChanceRangeWater(){
+        return new double[] {maxWaterRange, minWaterRange};
+    }
+
     // Sets percent range for amount water tiles
     public void setChanceRangeWater(double max, double min){
         this.maxWaterRange = max;
         this.minWaterRange = min;
+    }
+
+    // Get the percent range for the amount of plains tiles
+    public double[] getChanceRangePlain(){
+        return new double[] {maxPlainRange, minPlainRange};
     }
 
     // Sets percent range for amount of plains tiles
@@ -42,10 +62,20 @@ public class TileSet {
         this.minPlainRange = min;
     }
 
+    // Get the percent range for the amount of mountain tiles
+    public double[] getChanceRangeMountain(){
+        return new double[] {maxMountainRange, minMountainRange};
+    }
+
     // Sets percent range for amount of mountain tiles
     public void setChanceRangeMountain(double max, double min){
         this.maxMountainRange = max;
         this.minMountainRange = min;
+    }
+
+    // Get the additional chance for a forest next to another forest tile
+    public double getContChanceForest() {
+        return contChanceForest;
     }
 
     // Sets the additional chance for a forest next to another forest tile
@@ -53,14 +83,29 @@ public class TileSet {
         this.contChanceForest = contChanceForest;
     }
 
+    // Get the additional chance for a water tile next to another water tile
+    public double getContChanceWater() {
+        return contChanceWater;
+    }
+
     // Sets the additional chance for a water next to another water tile
     public void setContChanceWater(double contChanceWater){
         this.contChanceWater = contChanceWater;
     }
 
+    // Get the additional chance for a plain next to another plain tile
+    public double getContChancePlain() {
+        return contChancePlain;
+    }
+
     // Sets the additional chance for a plain next to another plain tile
     public void setContChancePlain(double contChancePlain){
         this.contChancePlain = contChancePlain;
+    }
+
+    // Get the additional chance for a mountain next to another mountain tile
+    public double getContChanceMountain() {
+        return contChanceMountain;
     }
 
     // Sets the additional chance for a mountain next to another mountain tile

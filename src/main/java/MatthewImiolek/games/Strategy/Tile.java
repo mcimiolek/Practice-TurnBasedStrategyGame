@@ -18,9 +18,19 @@ public class Tile {
     int unit;           // An integer representing the exact unit on the tile, if -1 no unit is present
     Color color;       // The base color of the tile
 
+    // Check if the tile has a unit or not
+    public boolean isHasUnit() {
+        return hasUnit;
+    }
+
     // Set if the tile has a unit or not
     public void setHasUnit(boolean hasUnit){
         this.hasUnit = hasUnit;
+    }
+
+    // Check if the tile has an ability
+    public boolean isHasAbility() {
+        return hasAbility;
     }
 
     // Set if the tile has an ability
@@ -28,10 +38,17 @@ public class Tile {
         this.hasAbility = hasAbility;
     }
 
+    // Get the evasion bonus
+    public double getEvaBonus() {
+        return evaBonus;
+    }
+
     // Set the evasion bonus
     public void setEvaBonus(double evaBonus){
         this.evaBonus = evaBonus;
     }
+
+    // G
 
     // Set the cost for flying units
     public void setFlyCost(int flyCost){

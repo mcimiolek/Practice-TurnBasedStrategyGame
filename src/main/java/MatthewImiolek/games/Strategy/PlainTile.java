@@ -12,4 +12,5 @@ public class PlainTile extends Tile {
     int fastCost = 1;
     int abilPhase = -1;
     int abilImpact = -1;
+    int unit = -1;
 }

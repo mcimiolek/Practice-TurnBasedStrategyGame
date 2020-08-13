@@ -13,6 +13,7 @@ public class Tile {
     int fastCost;       // How much moving over the tile costs for a fast unit, -1 means cannot go there
     int abilPhase;      // What phase of play the ability must be applied in, -1 means no ability
     int abilImpact;     // The impact of the ability, -1 means no ability
+    int unit;           // An integer representing the exact unit on the tile, if -1 no unit is present
 
     // set if the tile has a unit or not
     public void setHasUnit(boolean hasUnit){
@@ -57,5 +58,10 @@ public class Tile {
     // Set which ability the tile has
     public void setAbilImpact(int abilImpact){
         this.abilImpact = abilImpact;
+    }
+
+    // Set which unit is on the tile
+    public void setUnit(int unit){
+        this.unit = unit;
     }
 }

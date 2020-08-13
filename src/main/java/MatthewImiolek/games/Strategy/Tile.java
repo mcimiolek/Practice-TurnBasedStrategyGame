@@ -1,5 +1,7 @@
 package MatthewImiolek.games.Strategy;
 
+import java.awt.Color;
+
 /* Abstract class which sets up the basic needs for a tile. This includes whether a tile has a unit, how different unit
    types movement are impacted by a tile, and if a tile gives any other benefits. */
 
@@ -14,8 +16,9 @@ public class Tile {
     int abilPhase;      // What phase of play the ability must be applied in, -1 means no ability
     int abilImpact;     // The impact of the ability, -1 means no ability
     int unit;           // An integer representing the exact unit on the tile, if -1 no unit is present
+    Color color;       // The base color of the tile
 
-    // set if the tile has a unit or not
+    // Set if the tile has a unit or not
     public void setHasUnit(boolean hasUnit){
         this.hasUnit = hasUnit;
     }
@@ -25,7 +28,7 @@ public class Tile {
         this.hasAbility = hasAbility;
     }
 
-    // set the evasion bonus
+    // Set the evasion bonus
     public void setEvaBonus(double evaBonus){
         this.evaBonus = evaBonus;
     }
@@ -63,5 +66,10 @@ public class Tile {
     // Set which unit is on the tile
     public void setUnit(int unit){
         this.unit = unit;
+    }
+
+    // Set the color of the tile
+    public void setColor(Color color){
+        this.color = color;
     }
 }

@@ -2,6 +2,8 @@ package MatthewImiolek.games.Strategy;
 
 /* A tile representing a mountain, heavily impacts movement and evasion. */
 
+import java.awt.*;
+
 public class MountainTile extends Tile {
     boolean hasUnit = false;
     boolean hasAbility = false;
@@ -13,4 +15,7 @@ public class MountainTile extends Tile {
     int abilPhase = -1;
     int abilImpact = -1;
     int unit = -1;
+    Color color = new Color(102, 51, 0);
+
+    MountainTile(){}
 }

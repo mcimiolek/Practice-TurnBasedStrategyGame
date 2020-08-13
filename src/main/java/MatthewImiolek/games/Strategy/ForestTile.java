@@ -2,6 +2,8 @@ package MatthewImiolek.games.Strategy;
 
 /* A tile representing a forest, a relatively basic tile minorly impacting evasion and fast units. */
 
+import java.awt.*;
+
 public class ForestTile extends Tile {
     boolean hasUnit = false;
     boolean hasAbility = false;
@@ -13,4 +15,7 @@ public class ForestTile extends Tile {
     int abilPhase = -1;
     int abilImpact = -1;
     int unit = -1;
+    Color color = new Color(0, 50, 0);
+
+    ForestTile(){}
 }

@@ -2,6 +2,8 @@ package MatthewImiolek.games.Strategy;
 
 /* A tile representing water, heavily restrict unit movement, and minorly evasion. */
 
+import java.awt.*;
+
 public class WaterTile extends Tile {
     boolean hasUnit = false;
     boolean hasAbility = false;
@@ -13,4 +15,7 @@ public class WaterTile extends Tile {
     int abilPhase = -1;
     int abilImpact = -1;
     int unit = -1;
+    Color color = new Color(0, 35, 200);
+
+    WaterTile(){}
 }

@@ -17,5 +17,6 @@ public class WaterTile extends Tile {
     int unit = -1;
     Color color = new Color(0, 35, 200);
 
+    // Constructor for a water tile
     WaterTile(){}
 }

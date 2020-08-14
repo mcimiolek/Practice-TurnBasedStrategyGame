@@ -17,5 +17,6 @@ public class ForestTile extends Tile {
     int unit = -1;
     Color color = new Color(0, 50, 0);
 
+    // Constructor for a plain tile
     ForestTile(){}
 }

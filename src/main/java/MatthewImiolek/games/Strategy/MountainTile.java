@@ -17,5 +17,6 @@ public class MountainTile extends Tile {
     int unit = -1;
     Color color = new Color(102, 51, 0);
 
+    // Constructor for a mountain tile
     MountainTile(){}
 }

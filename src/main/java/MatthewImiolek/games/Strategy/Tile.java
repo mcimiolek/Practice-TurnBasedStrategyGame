@@ -48,11 +48,19 @@ public class Tile {
         this.evaBonus = evaBonus;
     }
 
-    // G
+    // Get the move cost for flying units
+    public int getFlyCost() {
+        return flyCost;
+    }
 
     // Set the cost for flying units
     public void setFlyCost(int flyCost){
         this.flyCost = flyCost;
+    }
+
+    // Get the move cost for heavy units
+    public int getHeavyCost() {
+        return heavyCost;
     }
 
     // Set the cost for heavy units
@@ -60,9 +68,19 @@ public class Tile {
         this.heavyCost = heavyCost;
     }
 
+    // Get the move cost for light units
+    public int getLightCost() {
+        return lightCost;
+    }
+
     // Set the cost for light units
     public void setLightCost(int lightCost){
         this.lightCost = lightCost;
+    }
+
+    // Get the move cost for fast units
+    public int getFastCost() {
+        return fastCost;
     }
 
     // Set the cost for fast units
@@ -70,9 +88,19 @@ public class Tile {
         this.fastCost = fastCost;
     }
 
+    // Get the phase of the game where the ability must be applied
+    public int getAbilPhase() {
+        return abilPhase;
+    }
+
     // Set the phase of the game where the ability must be applied
     public void setAbilPhase(int abilPhase){
         this.abilPhase = abilPhase;
+    }
+
+    // Get the ability which the tile has
+    public int getAbilImpact() {
+        return abilImpact;
     }
 
     // Set which ability the tile has
@@ -80,9 +108,19 @@ public class Tile {
         this.abilImpact = abilImpact;
     }
 
+    // Get which unit the tile has
+    public int getUnit() {
+        return unit;
+    }
+
     // Set which unit is on the tile
     public void setUnit(int unit){
         this.unit = unit;
+    }
+
+    // Get which color the tile is
+    public Color getColor() {
+        return color;
     }
 
     // Set the color of the tile

@@ -1,8 +1,11 @@
 package MatthewImiolek.games.Strategy;
 
+import java.awt.*;
+import javax.swing.*;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	    BoardGenerator gen = new BoardGenerator();
     }
 }

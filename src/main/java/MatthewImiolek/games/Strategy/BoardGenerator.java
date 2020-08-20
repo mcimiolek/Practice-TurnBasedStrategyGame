@@ -32,6 +32,7 @@ public class BoardGenerator {
         JFrame setup = new JFrame("Board choices");            // Frame which holds board selection choices
         GridBagConstraints setupLayout = new GridBagConstraints();  // Layout for the frame
         ButtonGroup boardSize = new ButtonGroup();                  // Button group holding choices on board size
+        ButtonGroup tileSetChoice = new ButtonGroup();              // Button group holding choices on tile set
 
         // Setup the basics of the frame
         setup.setVisible(true);
@@ -42,8 +43,11 @@ public class BoardGenerator {
         // Setup the basics of the layout
         setupLayout.anchor = GridBagConstraints.LINE_START;
 
-        // Add the size option buttons
+        // Add the size radio buttons
         addSizeOptions(setupLayout, setup, boardSize);
+
+        // Add the tile set radio buttons
+        addTileSetOptions(setupLayout, setup, tileSetChoice);
 
         return setup;
     }
@@ -74,5 +78,19 @@ public class BoardGenerator {
         boardSize.add(small);
         boardSize.add(medium);
         boardSize.add(large);
+    }
+
+    // Function which adds the details relating to the tile set to the frame
+    public void addTileSetOptions(GridBagConstraints setupLayout, JFrame setup, ButtonGroup tileSetChoice) {
+
+        // Create and add a button to choose a small board size, also the default size
+        JRadioButton equal = new JRadioButton("Equal");
+        setupLayout.gridx = 1;
+        setupLayout.gridy = 0;
+        equal.setSelected(true);
+        setup.add(equal, setupLayout);
+
+        // Add all of the size buttons to the button group
+        tileSetChoice.add(equal);
     }
 }

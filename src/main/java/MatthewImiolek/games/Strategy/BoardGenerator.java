@@ -42,6 +42,15 @@ public class BoardGenerator {
         // Setup the basics of the layout
         setupLayout.anchor = GridBagConstraints.LINE_START;
 
+        // Add the size option buttons
+        addSizeOptions(setupLayout, setup, boardSize);
+
+        return setup;
+    }
+
+    // Function which adds the details relating to the size options to the frame
+    public void addSizeOptions(GridBagConstraints setupLayout, JFrame setup, ButtonGroup boardSize) {
+
         // Create and add a button to choose a small board size, also the default size
         JRadioButton small = new JRadioButton("Small");
         setupLayout.gridx = 0;
@@ -65,7 +74,5 @@ public class BoardGenerator {
         boardSize.add(small);
         boardSize.add(medium);
         boardSize.add(large);
-
-        return setup;
     }
 }

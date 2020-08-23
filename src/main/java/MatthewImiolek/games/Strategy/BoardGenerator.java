@@ -6,11 +6,13 @@ import javax.swing.*;
 /* class which generates the visible board given a choice of a tile set and a board size */
 
 public class BoardGenerator {
+    String boardSize = "small"; // The size of the board, defaults to small
+    String tileSet = "equal";   // The tile set for the board, defaults to equal
 
     // Constructor for a board generator
-    BoardGenerator(){
+    BoardGenerator() throws InterruptedException{
         createBackground();
-        boardChoices();
+        JFrame dooes = boardChoices();
     }
 
     // Create the background for the board using a JFrame
@@ -28,10 +30,10 @@ public class BoardGenerator {
     }
 
     // Create a popup where the user selects the board options
-    public JFrame boardChoices(){
+    public JFrame boardChoices() throws InterruptedException{
         JFrame setup = new JFrame("Board choices");            // Frame which holds board selection choices
         GridBagConstraints setupLayout = new GridBagConstraints();  // Layout for the frame
-        ButtonGroup boardSize = new ButtonGroup();                  // Button group holding choices on board size
+        ButtonGroup boardSizeChoice = new ButtonGroup();                  // Button group holding choices on board size
         ButtonGroup tileSetChoice = new ButtonGroup();              // Button group holding choices on tile set
 
         // Setup the basics of the frame
@@ -44,10 +46,12 @@ public class BoardGenerator {
         setupLayout.anchor = GridBagConstraints.LINE_START;
 
         // Add the size radio buttons
-        addSizeOptions(setupLayout, setup, boardSize);
+        addSizeOptions(setupLayout, setup, boardSizeChoice);
 
         // Add the tile set radio buttons
         addTileSetOptions(setupLayout, setup, tileSetChoice);
+
+        updateFromChoices(setup, boardSizeChoice, tileSetChoice);
 
         return setup;
     }
@@ -93,4 +97,19 @@ public class BoardGenerator {
         // Add all of the size buttons to the button group
         tileSetChoice.add(equal);
     }
+
+    // Function which updates global variables after choices are made
+    public void updateFromChoices(JFrame choiceFrame, ButtonGroup sizes, ButtonGroup tileSets) throws InterruptedException{
+
+        // While the frame is visible choices may still be being made, so wait till those are done
+        while(choiceFrame.isVisible()) {
+            System.out.println(choiceFrame.isVisible());
+        }
+
+        System.out.println(sizes.getSelection().hashCode());
+        System.out.println(tileSets.getSelection().hashCode());
+    }
 }
+
+// javax.swing.JToggleButton$ToggleButtonModel@6193b845 1637070917
+//javax.swing.JToggleButton$ToggleButtonModel@2e817b38 780237624

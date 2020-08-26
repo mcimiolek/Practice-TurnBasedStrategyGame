@@ -1,6 +1,7 @@
 package MatthewImiolek.games.Strategy;
 
 import java.awt.*;
+import java.util.Enumeration;
 import javax.swing.*;
 
 /* class which generates the visible board given a choice of a tile set and a board size */
@@ -11,8 +12,8 @@ public class BoardGenerator {
 
     // Constructor for a board generator
     BoardGenerator() throws InterruptedException{
-        createBackground();
-        JFrame dooes = boardChoices();
+        JFrame background = createBackground();
+        JFrame choices = boardChoices();
     }
 
     // Create the background for the board using a JFrame
@@ -33,7 +34,7 @@ public class BoardGenerator {
     public JFrame boardChoices() throws InterruptedException{
         JFrame setup = new JFrame("Board choices");            // Frame which holds board selection choices
         GridBagConstraints setupLayout = new GridBagConstraints();  // Layout for the frame
-        ButtonGroup boardSizeChoice = new ButtonGroup();                  // Button group holding choices on board size
+        ButtonGroup boardSizeChoice = new ButtonGroup();            // Button group holding choices on board size
         ButtonGroup tileSetChoice = new ButtonGroup();              // Button group holding choices on tile set
 
         // Setup the basics of the frame
@@ -51,6 +52,7 @@ public class BoardGenerator {
         // Add the tile set radio buttons
         addTileSetOptions(setupLayout, setup, tileSetChoice);
 
+        // Update values from the changes
         updateFromChoices(setup, boardSizeChoice, tileSetChoice);
 
         return setup;
@@ -103,13 +105,24 @@ public class BoardGenerator {
 
         // While the frame is visible choices may still be being made, so wait till those are done
         while(choiceFrame.isVisible()) {
-            System.out.println(choiceFrame.isVisible());
         }
 
-        System.out.println(sizes.getSelection().hashCode());
-        System.out.println(tileSets.getSelection().hashCode());
+        // Go through and check which size button was selected, and set the store that value
+        for (Enumeration<AbstractButton> sizeOptions = sizes.getElements(); sizeOptions.hasMoreElements();) {
+            AbstractButton sizeChoice = sizeOptions.nextElement();
+            if (sizeChoice.isSelected()) {
+               boardSize = sizeChoice.getText();
+                break;
+            }
+        }
+
+        // Go through and check which tile set button was selected, and store that value
+        for (Enumeration<AbstractButton> setOptions = tileSets.getElements(); setOptions.hasMoreElements();) {
+            AbstractButton setChoice = setOptions.nextElement();
+            if (setChoice.isSelected()) {
+                tileSet = setChoice.getText();
+                break;
+            }
+        }
     }
 }
-
-// javax.swing.JToggleButton$ToggleButtonModel@6193b845 1637070917
-//javax.swing.JToggleButton$ToggleButtonModel@2e817b38 780237624

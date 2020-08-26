@@ -1,11 +1,12 @@
 package MatthewImiolek.games.Strategy;
 
-import java.awt.Color;
+import java.awt.*;
+import acm.graphics.*;
 
 /* Abstract class which sets up the basic needs for a tile. This includes whether a tile has a unit, how different unit
    types movement are impacted by a tile, and if a tile gives any other benefits. */
 
-public class Tile {
+public class Tile extends GRectangle {
     boolean hasUnit;    // States if a tile has a unit
     boolean hasAbility; // States if a tile has an ability that must be applied
     double evaBonus;    // The amount of evasion bonus a unit gets from a tile
@@ -16,7 +17,7 @@ public class Tile {
     int abilPhase;      // What phase of play the ability must be applied in, -1 means no ability
     int abilImpact;     // The impact of the ability, -1 means no ability
     int unit;           // An integer representing the exact unit on the tile, if -1 no unit is present
-    Color color;       // The base color of the tile
+    Color color;        // The base color of the tile
 
     // Check if the tile has a unit or not
     public boolean isHasUnit() {

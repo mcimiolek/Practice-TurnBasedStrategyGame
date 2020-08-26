@@ -7,11 +7,11 @@ import javax.swing.*;
 /* class which generates the visible board given a choice of a tile set and a board size */
 
 public class BoardGenerator {
-    String boardSize = "small"; // The size of the board, defaults to small
-    String tileSet = "equal";   // The tile set for the board, defaults to equal
+    String boardSize = "Small"; // The size of the board, defaults to small
+    String tileSet = "Equal";   // The tile set for the board, defaults to equal
 
     // Constructor for a board generator
-    BoardGenerator() throws InterruptedException{
+    BoardGenerator() {
         JFrame background = createBackground();
         JFrame choices = boardChoices();
     }
@@ -31,7 +31,7 @@ public class BoardGenerator {
     }
 
     // Create a popup where the user selects the board options
-    public JFrame boardChoices() throws InterruptedException{
+    public JFrame boardChoices() {
         JFrame setup = new JFrame("Board choices");            // Frame which holds board selection choices
         GridBagConstraints setupLayout = new GridBagConstraints();  // Layout for the frame
         ButtonGroup boardSizeChoice = new ButtonGroup();            // Button group holding choices on board size
@@ -101,7 +101,7 @@ public class BoardGenerator {
     }
 
     // Function which updates global variables after choices are made
-    public void updateFromChoices(JFrame choiceFrame, ButtonGroup sizes, ButtonGroup tileSets) throws InterruptedException{
+    public void updateFromChoices(JFrame choiceFrame, ButtonGroup sizes, ButtonGroup tileSets) {
 
         // While the frame is visible choices may still be being made, so wait till those are done
         while(choiceFrame.isVisible()) {

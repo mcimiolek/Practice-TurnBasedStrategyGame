@@ -18,5 +18,11 @@ public class PlainTile extends Tile {
     Color color = new Color(0, 102, 0);
 
     // Constructor for a plain tile
-    PlainTile(){}
+    PlainTile(){
+        super();
+    }
+
+    PlainTile(double x, double y, double width, double height){
+        super(x, y, width, height);
+    }
 }

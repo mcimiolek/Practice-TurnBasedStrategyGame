@@ -18,5 +18,11 @@ public class MountainTile extends Tile {
     Color color = new Color(102, 51, 0);
 
     // Constructor for a mountain tile
-    MountainTile(){}
+    MountainTile(){
+        super();
+    }
+
+    MountainTile(double x, double y, double width, double height){
+        super(x, y, width, height);
+    }
 }

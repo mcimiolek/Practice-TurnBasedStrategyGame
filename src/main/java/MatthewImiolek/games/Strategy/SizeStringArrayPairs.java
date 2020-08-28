@@ -7,8 +7,12 @@ public class SizeStringArrayPairs {
     HashMap sizeMap = new HashMap();
 
     SizeStringArrayPairs(){
-        sizeMap.put("Small", new int[] {10, 10});
-        sizeMap.put("Medium", new int[] {15, 15});
-        sizeMap.put("Large", new int[] {20, 20});
+        sizeMap.put("small", new int[] {10, 10});
+        sizeMap.put("medium", new int[] {15, 15});
+        sizeMap.put("large", new int[] {20, 20});
+    }
+
+    public int[] getPairArray(String size){
+        return (int[]) sizeMap.get(size.toLowerCase());
     }
 }

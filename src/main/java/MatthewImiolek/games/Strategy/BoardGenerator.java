@@ -7,8 +7,9 @@ import javax.swing.*;
 /* class which generates the visible board given a choice of a tile set and a board size */
 
 public class BoardGenerator {
-    String boardSize = "Small"; // The size of the board, defaults to small
-    String tileSet = "Equal";   // The tile set for the board, defaults to equal
+    String boardSize = "Small";                                  // The size of the board, defaults to small
+    String tileSet = "Equal";                                    // The tile set for the board, defaults to equal
+    SizeStringArrayPairs sizePairs = new SizeStringArrayPairs(); // Hashmap holding the string representing the board size paired with its size in an array
 
     // Constructor for a board generator
     BoardGenerator() {
@@ -19,7 +20,7 @@ public class BoardGenerator {
     // Create the background for the board using a JFrame
     public JFrame createBackground(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // Get the size of the monitor
-        JFrame background = new JFrame("Practice Strategy Game");       // Create the frame for the board
+        JFrame background = new JFrame("Practice Strategy Game");      // Create the frame for the board
 
         // Set the basics for the frame
         background.setVisible(true);
@@ -124,5 +125,11 @@ public class BoardGenerator {
                 break;
             }
         }
+    }
+
+    // Function which adds tiles to the board
+    public void addTiles(JFrame board) {
+        int[] boardSizePair = sizePairs.getPairArray(boardSize); // A pair containing the height and width of the board
+
     }
 }

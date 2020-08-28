@@ -19,6 +19,15 @@ public class Tile extends GRectangle {
     int unit;           // An integer representing the exact unit on the tile, if -1 no unit is present
     Color color;        // The base color of the tile
 
+    // Constructors
+    Tile(){
+        super();
+    }
+
+    Tile(double x, double y, double width, double height){
+        super(x, y, width, height);
+    }
+
     // Check if the tile has a unit or not
     public boolean isHasUnit() {
         return hasUnit;

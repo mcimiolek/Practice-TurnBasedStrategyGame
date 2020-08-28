@@ -18,5 +18,11 @@ public class WaterTile extends Tile {
     Color color = new Color(0, 35, 200);
 
     // Constructor for a water tile
-    WaterTile(){}
+    WaterTile(){
+        super();
+    }
+
+    WaterTile(double x, double y, double width, double height){
+        super(x, y, width, height);
+    }
 }

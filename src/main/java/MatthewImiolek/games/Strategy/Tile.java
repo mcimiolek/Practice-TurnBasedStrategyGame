@@ -6,7 +6,7 @@ import acm.graphics.*;
 /* Abstract class which sets up the basic needs for a tile. This includes whether a tile has a unit, how different unit
    types movement are impacted by a tile, and if a tile gives any other benefits. */
 
-public class Tile extends GRectangle {
+public class Tile extends GRect {
     boolean hasUnit;    // States if a tile has a unit
     boolean hasAbility; // States if a tile has an ability that must be applied
     double evaBonus;    // The amount of evasion bonus a unit gets from a tile
@@ -20,10 +20,6 @@ public class Tile extends GRectangle {
     Color color;        // The base color of the tile
 
     // Constructors
-    Tile(){
-        super();
-    }
-
     Tile(double x, double y, double width, double height){
         super(x, y, width, height);
     }

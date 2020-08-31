@@ -18,10 +18,6 @@ public class ForestTile extends Tile {
     Color color = new Color(0, 50, 0);
 
     // Constructor for a plain tile
-    ForestTile(){
-        super();
-    }
-
     ForestTile(double x, double y, double width, double height){
         super(x, y, width, height);
     }

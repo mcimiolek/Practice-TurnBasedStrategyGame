@@ -5,7 +5,8 @@ import javax.swing.*;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)   {
 	    BoardGenerator gen = new BoardGenerator();
+	    gen.generate();
     }
 }

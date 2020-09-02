@@ -1,5 +1,6 @@
 package MatthewImiolek.games.Strategy;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Enumeration;
@@ -89,10 +90,11 @@ public class BoardChoices extends JFrame{
     }
 
     // Function which updates global variable for the tile set choice
-    public String updateSetChoice() {
+    public String updateSetChoice() throws InterruptedException{
 
         // While the frame is visible choices may still be being made, so wait till those are done
         while(this.isVisible()) {
+            Thread.sleep(2);
         }
 
         // Go through and check which tile set button was selected, and store that value
@@ -102,7 +104,6 @@ public class BoardChoices extends JFrame{
                 return setChoice.getText();
             }
         }
-
         return null;
     }
 }

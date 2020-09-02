@@ -8,6 +8,7 @@ import java.awt.*;
 
 // Class that actually makes the board
 public class BackgroundVisuals extends JFrame {
+    GCanvas content = new GCanvas();
 
     // Constructor for a new background setup
     BackgroundVisuals(){
@@ -18,21 +19,21 @@ public class BackgroundVisuals extends JFrame {
         this.setSize(screenSize.width, screenSize.height);
         this.setLocation(0, 0);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setContentPane(content);
+
+        content.setVisible(true);
     }
 
     // Function which adds tiles to the board
     public void addTiles(String boardSize) {
+        System.out.println("HELLO");
         SizeStringArrayPairs sizePairs = new SizeStringArrayPairs();
         int[] boardSizePair = sizePairs.getPairArray(boardSize); // A pair containing the height and width of the board
-        Tile temp = new Tile(10, 10, 10, 10);
-        GCanvas tenmo = new GCanvas();
-        GRect hi = new GRect(10, 10 ,10 ,10);
+
+        GRect hi = new GRect(100, 100 ,100 ,100);
         hi.setFilled(true);
         hi.setFillColor(Color.BLUE);
-        tenmo.add(hi);
-        this.add(tenmo);
-
-        System.out.println("hi");
-
+        content.add(hi);
+        System.out.println("HELLO");
     }
 }

@@ -21,4 +21,9 @@ public class ForestTile extends Tile {
     ForestTile(double x, double y, double width, double height){
         super(x, y, width, height);
     }
+
+    // Get which color the tile is
+    public Color getColor() {
+        return color;
+    }
 }

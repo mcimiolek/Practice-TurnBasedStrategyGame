@@ -23,9 +23,6 @@ public class BoardGenerator{
     public void generate() throws InterruptedException{
         tileSet = choicePopup.updateSetChoice();
         boardSize = choicePopup.updateSizeChoice();
-        backgroundGenerator.addTiles(boardSize);
-
-        //GRect hie = new GRect(100, 100 ,100 ,100);
-        //backgroundGenerator.getContentPane().add(hie);
+        backgroundGenerator.addTiles(boardSize, tileSet);
     }
 }

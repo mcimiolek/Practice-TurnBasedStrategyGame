@@ -21,4 +21,9 @@ public class MountainTile extends Tile {
     MountainTile(double x, double y, double width, double height){
         super(x, y, width, height);
     }
+
+    // Get which color the tile is
+    public Color getColor() {
+        return color;
+    }
 }

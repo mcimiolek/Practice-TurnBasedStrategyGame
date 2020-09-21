@@ -34,11 +34,10 @@ public class BackgroundVisuals extends JFrame {
         double tileHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight() / boardSizePair[1]; // Height of each tile
         double tileWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth() / boardSizePair[0];   // Width of each tile
         TileSet tileSet = setStringMap.getTileSet(tileSetName);                                         // Create the tile set for the board
-        String lastTile = null;                                                                         // The last tile so any necessary tile chances can be changed
-
-        // Decide the base chance of each tile type
-
-
+        String lastTile = null;                                                                         // The last tile so tile chances can be changed
+        double[] baseTileChances = tileSet.calcTileChance();                                            // The chance of each tile type by default
+        double[] updatedChances = baseTileChances.clone();                                              // The chance of each tile after accounting for previous tile
+        double randNum;                                                                                 // A random number selecting the next tile
 
         // Add tiles to array and to the content pane
         for(int x = 0; x < boardSizePair[0]; x++) {

@@ -1,10 +1,10 @@
 package MatthewImiolek.games.Strategy;
 
 import acm.graphics.GCanvas;
-import acm.graphics.GRect;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 // Class that actually makes the board
 public class BackgroundVisuals extends JFrame {
@@ -18,7 +18,7 @@ public class BackgroundVisuals extends JFrame {
         // Setup the basics of the board
         this.setTitle("Practice Strategy Game");
         this.setVisible(true);
-        this.setSize(screenSize.width, screenSize.height);
+        this.setSize(screenSize.width, screenSize.height-100);
         this.setLocation(0, 0);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setContentPane(content);
@@ -29,24 +29,50 @@ public class BackgroundVisuals extends JFrame {
     public void addTiles(String boardSize, String tileSetName) {
         TileSetStringMap setStringMap = new TileSetStringMap();
         SizeStringArrayPairs sizePairs = new SizeStringArrayPairs();
-        int[] boardSizePair = sizePairs.getPairArray(boardSize);                                        // A pair containing the height and width of the board
+        int[] boardSizePair = sizePairs.getPairArray(boardSize);                                                    // A pair containing the height and width of the board
         tiles = new Tile[boardSizePair[0]][boardSizePair[1]];
-        double tileHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight() / boardSizePair[1]; // Height of each tile
-        double tileWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth() / boardSizePair[0];   // Width of each tile
-        TileSet tileSet = setStringMap.getTileSet(tileSetName);                                         // Create the tile set for the board
-        String lastTile = null;                                                                         // The last tile so tile chances can be changed
-        double[] baseTileChances = tileSet.calcTileChance();                                            // The chance of each tile type by default
-        double[] updatedChances = baseTileChances.clone();                                              // The chance of each tile after accounting for previous tile
-        double randNum;                                                                                 // A random number selecting the next tile
+        double tileHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight() / boardSizePair[1];             // Height of each tile
+        double tileWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth() / boardSizePair[0];               // Width of each tile
+        TileSet tileSet = setStringMap.getTileSet(tileSetName);                                                     // Create the tile set for the board
+        int lastTile = tileSet.getBaseTile();                                                                       // The last tile so tile chances can be changed, defaulted to the base tile
+        double[] baseTileChances = tileSet.calcTileChance(); // The chance of each tile type by default
+        double[] updatedChances = baseTileChances.clone();                                                          // The chance of each tile after accounting for previous tile
+        double randNum;                                                                                             // A random number selecting the next tile
+        Random rand = new Random();
 
         // Add tiles to array and to the content pane
         for(int x = 0; x < boardSizePair[0]; x++) {
             for(int y = 0; y < boardSizePair[1]; y++) {
 
-                tiles[x][y] = new PlainTile(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
-                tiles[x][y].setFilled(true);
-                tiles[x][y].setFillColor(tiles[x][y].getColor());
-                content.add(tiles[x][y]);
+                randNum = rand.nextDouble();
+
+                // TODO: REMOVE
+                System.out.println(randNum);
+
+                if(randNum < updatedChances[0]){
+                    tiles[x][y] = new PlainTile(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                    tiles[x][y].setFilled(true);
+                    tiles[x][y].setFillColor(tiles[x][y].getColor());
+                    content.add(tiles[x][y]);
+                }
+                else if(randNum < updatedChances[1]) {
+                    tiles[x][y] = new ForestTile(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                    tiles[x][y].setFilled(true);
+                    tiles[x][y].setFillColor(tiles[x][y].getColor());
+                    content.add(tiles[x][y]);
+                }
+                else if (randNum < updatedChances[2]) {
+                    tiles[x][y] = new MountainTile(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                    tiles[x][y].setFilled(true);
+                    tiles[x][y].setFillColor(tiles[x][y].getColor());
+                    content.add(tiles[x][y]);
+                }
+                else {
+                    tiles[x][y] = new WaterTile(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                    tiles[x][y].setFilled(true);
+                    tiles[x][y].setFillColor(tiles[x][y].getColor());
+                    content.add(tiles[x][y]);
+                }
             }
         }
     }

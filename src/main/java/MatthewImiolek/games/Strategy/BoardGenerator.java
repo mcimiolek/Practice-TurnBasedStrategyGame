@@ -4,7 +4,7 @@ package MatthewImiolek.games.Strategy;
 
 public class BoardGenerator{
     String boardSize = "Small";                                  // The size of the board, defaults to small
-    String tileSet = "Equal";                                    // The tile set for the board, defaults to equal
+    String tileSet = "equal";                                    // The tile set for the board, defaults to equal
     BackgroundVisuals backgroundGenerator;                       // Customized jframe which represents the board
     BoardChoices choicePopup;                                    // Customized jframe which represents the choices popup
 
@@ -17,6 +17,6 @@ public class BoardGenerator{
     public void generate() throws InterruptedException{
         tileSet = choicePopup.updateSetChoice();
         boardSize = choicePopup.updateSizeChoice();
-        backgroundGenerator.addTiles(boardSize, tileSet);
+        backgroundGenerator.addTiles(boardSize, tileSet.toLowerCase());
     }
 }

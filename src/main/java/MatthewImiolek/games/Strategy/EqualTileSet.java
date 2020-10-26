@@ -8,4 +8,8 @@ public class EqualTileSet extends TileSet {
     double[] rangeMins = {.25, .25, .25, .25};   // Array holding the minimums for each tile type
     double[] contChances = {.1, .1, .1, .1}; // Additional chance of the same tile following the previous tile
     int tileTypesPresent = 4;
+
+    public double[] calcTileChance() {
+        return super.calcTileChance(rangeMaxes, rangeMins, baseTile);
+    }
 }

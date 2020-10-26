@@ -7,7 +7,7 @@ import java.lang.Math;
    as the one it is next to. This is then extended to create the actual tile sets. In the arrays holding values for
    each tile type, 0 is plains, 1 is forests, 2 is mountains, and 3 is water. */
 
-public class TileSet {
+public abstract class TileSet {
     int baseTile;      // The base tile type for the set, which is represented by its location in arrays
     double[] rangeMaxes;  // Array holding the maxes for each tile type
     double[] rangeMins;   // Array holding the minimums for each tile type
@@ -67,24 +67,31 @@ public class TileSet {
     }
 
     // Return an array holding the chance of a tile calculated using a tile sets range maxes and mins
-    public double[] calcTileChance() {
-        double[] tileChances = new double[contChances.length]; // Array holding the chances that should be returned
-        double sum = 0.0;                                      // Sum of the chance for each tile
+    public double[] calcTileChance(double[] maxes, double[] mins, int baseTile) {
+        double[] tileChances = new double[maxes.length]; // Array holding the chances that should be returned
+        double sum = 0.0;                                // Sum of the chance for each tile
+        double amountAdd = 0.0;                          // The amount to add to get chance for next tile type
 
         // Give the chance for each tile type
-        for(int i = 0; i < rangeMaxes.length; i++) {
-            tileChances[i] = (Math.random() * rangeMaxes[i] - rangeMins[i]) + rangeMins[i];
-            sum += tileChances[i];
+        for(int i = 0; i < maxes.length; i++) {
+
+            amountAdd = (Math.random() * (maxes[i] - mins[i])) + mins[i];
+            tileChances[i] = sum + amountAdd;
+                    sum += amountAdd;
+
+            System.out.println(tileChances[i]);
         }
 
         // Make sure the chance of all of the tiles added together is exactly 1
         if(sum < 1.0) {
             tileChances[baseTile] += 1.0 - sum;
         }
-        else if(sum < 1.0) {
+        else if(sum > 1.0) {
             tileChances[baseTile] -= sum - 1.0;
         }
 
         return tileChances;
     }
+
+    public abstract double[] calcTileChance();
 }

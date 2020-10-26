@@ -78,8 +78,6 @@ public abstract class TileSet {
             amountAdd = (Math.random() * (maxes[i] - mins[i])) + mins[i];
             tileChances[i] = sum + amountAdd;
                     sum += amountAdd;
-
-            System.out.println(tileChances[i]);
         }
 
         // Make sure the chance of all of the tiles added together is exactly 1

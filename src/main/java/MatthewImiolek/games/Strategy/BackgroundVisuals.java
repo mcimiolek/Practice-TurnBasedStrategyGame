@@ -39,7 +39,7 @@ public class BackgroundVisuals extends JFrame {
         double tileHeight = baseHeight - (2 * borderWidth);                                                     // The width of each tile
         double tileWidth = tileHeight;                                                                          // The height of each tile
         TileSet tileSet = setStringMap.getTileSet(tileSetName);                                                 // Create the tile set for the board
-        int lastTile = tileSet.getBaseTile();                                                                   // The last tile so tile chances can be changed, defaulted to the base tile
+        int lastTile;                                                                                           // The last tile so tile chances can be changed, defaulted to the base tile
         double[] baseTileChances = tileSet.calcTileChance();                                                    // The chance of each tile type by default
         double[] updatedChances = baseTileChances.clone();                                                      // The chance of each tile after accounting for previous tile
         double randNum;                                                                                         // A random number selecting the next tile
@@ -83,6 +83,8 @@ public class BackgroundVisuals extends JFrame {
 
                     lastTile = 3;
                 }
+
+                tileSet.updateTileChance(baseTileChances, lastTile);
             }
         }
     }

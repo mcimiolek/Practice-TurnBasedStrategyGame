@@ -12,4 +12,8 @@ public class EqualTileSet extends TileSet {
     public double[] calcTileChance() {
         return super.calcTileChance(rangeMaxes, rangeMins, baseTile);
     }
+
+    public double[] updateTileChance(double[] baseChances, int lastTile) {
+        return super.updateTileChance(baseChances, lastTile, contChances, tileTypesPresent);
+    }
 }

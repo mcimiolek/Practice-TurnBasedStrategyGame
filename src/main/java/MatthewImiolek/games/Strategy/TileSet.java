@@ -8,7 +8,7 @@ import java.lang.Math;
    each tile type, 0 is plains, 1 is forests, 2 is mountains, and 3 is water. */
 
 public abstract class TileSet {
-    int baseTile;      // The base tile type for the set, which is represented by its location in arrays
+    int baseTile;         // The base tile type for the set, which is represented by its location in arrays
     double[] rangeMaxes;  // Array holding the maxes for each tile type
     double[] rangeMins;   // Array holding the minimums for each tile type
     double[] contChances; // Additional chance of the same tile following the previous tile
@@ -92,4 +92,28 @@ public abstract class TileSet {
     }
 
     public abstract double[] calcTileChance();
+
+    // Return an array of updated chances for each tile NOT OPTIMAL, ONLY WORKS IN ROWS
+    public double[] updateTileChance(double[] baseChances, int lastTile, double[] contChances, int tileTypes) {
+        double[] newChances = baseChances.clone();    // New chances for the next tile
+        double updateVal = contChances[lastTile];     // Amount to add based on the previous tile
+        double subVals = updateVal / (tileTypes - 1); // The amount to subtract from all the other tile types
+
+        // Update all of the values
+        for(int i = 0; i < baseChances.length - 1; i++) {
+            if(i < lastTile) {
+                newChances[i] -= updateVal;
+            }
+            else if(i == lastTile){
+                newChances[i] = newChances[i] + updateVal - subVals;
+            }
+            else {
+                newChances[i] += subVals;
+            }
+        }
+        
+        return newChances;
+    }
+
+    public abstract double[] updateTileChance(double[] baseChances, int lastTile);
 }

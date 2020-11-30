@@ -18,5 +18,6 @@ public class BoardGenerator{
         tileSet = choicePopup.updateSetChoice();
         boardSize = choicePopup.updateSizeChoice();
         backgroundGenerator.addTiles(boardSize, tileSet.toLowerCase());
+        backgroundGenerator.addText();
     }
 }

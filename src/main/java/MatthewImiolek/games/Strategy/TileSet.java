@@ -111,7 +111,7 @@ public abstract class TileSet {
                 newChances[i] += subVals;
             }
         }
-        
+
         return newChances;
     }
 

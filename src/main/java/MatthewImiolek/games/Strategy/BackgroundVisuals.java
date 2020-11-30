@@ -3,7 +3,6 @@ package MatthewImiolek.games.Strategy;
 import acm.graphics.GCanvas;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.*;
 
@@ -11,6 +10,7 @@ import java.util.*;
 public class BackgroundVisuals extends JFrame {
     GCanvas content = new GCanvas();    // Shows all the tiles
     Tile[][] tiles;                     // Create a tile array to hold each tile
+    JTextArea text;                     // Area that displays text
 
     // Constructor for a new background setup
     BackgroundVisuals(){
@@ -87,5 +87,18 @@ public class BackgroundVisuals extends JFrame {
                 tileSet.updateTileChance(baseTileChances, lastTile);
             }
         }
+    }
+
+    // Add a JTextArea to hold information about the board on
+    public void addText() {
+        double xPos = Toolkit.getDefaultToolkit().getScreenSize().getHeight(); // The yPosition to avoid tiles
+
+        text = new JTextArea();
+        text.setEditable(false);
+        text.setLocation((int) xPos,20);
+        text.setColumns(10);
+        text.setRows(10);
+        text.setBackground(Color.darkGray);
+        content.add(text);
     }
 }
